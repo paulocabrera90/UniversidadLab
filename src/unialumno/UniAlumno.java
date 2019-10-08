@@ -54,20 +54,20 @@ public class UniAlumno {
          Cursada c1 = new Cursada(1, a1.getAlm_id(), m1.getMat_id(), 8.0);
         Cursada c2 = new Cursada(1, a2.getAlm_id(), m2.getMat_id(), 5.5);  
 //        AlumnoData ad = new AlumnoData(conAlumnUni);
-//        ad.guardarAlumno(a1);
-//        ad.guardarAlumno(a2);
+//        ad.saveAlumno(a1);
+//        ad.saveAlumno(a2);
         
 //        ProfesorData pd = new ProfesorData(conAlumnUni);
-//        pd.guardarProfesor(p1);
-//        pd.guardarProfesor(p2);
+//        pd.saveProfesor(p1);
+//        pd.saveProfesor(p2);
          
 //         MateriaData md = new MateriaData(conAlumnUni);
-//         md.guardarMateria(m1);
-//          md.guardarMateria(m2);
+//         md.saveMateria(m1);
+//          md.saveMateria(m2);
          
          CursadaData cd = new CursadaData(conAlumnUni);
-         cd.guardarCursada(c1);
-         cd.guardarCursada(c2);
+         cd.saveCursada(c1);
+         cd.saveCursada(c2);
     }
     
 }

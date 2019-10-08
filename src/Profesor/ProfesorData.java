@@ -28,7 +28,7 @@ public class ProfesorData {
     
     }
     
-     public void guardarProfesor(Profesor profe){
+     public void saveProfesor(Profesor profe){
         String sql = "INSERT INTO profesor ( pro_matricula, pro_titulo, pro_nombre, pro_apellido, pro_domicilio) VALUES (?,?,?,?,?);";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

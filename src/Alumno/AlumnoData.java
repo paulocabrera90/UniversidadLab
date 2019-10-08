@@ -29,7 +29,7 @@ public class AlumnoData {
     }
     
    
-    public void guardarAlumno(Alumno alumno){
+    public void saveAlumno(Alumno alumno){
     
     String sql = "INSERT INTO alumno ( alm_nombre, alm_apellido, alm_dni, alm_domicilio, alm_egb) VALUES (?,?,?,?,?);";
         try {

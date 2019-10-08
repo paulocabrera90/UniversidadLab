@@ -26,7 +26,7 @@ public class MateriaData {
        con = conexion.conexion();
     
     }
-    public void guardarMateria(Materia mat){
+    public void saveMateria(Materia mat){
         String sql = "INSERT INTO materia (nombre, pro_id) VALUES (?,?);";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
