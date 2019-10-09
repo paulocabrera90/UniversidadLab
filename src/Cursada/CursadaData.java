@@ -28,25 +28,25 @@ public class CursadaData {
     }
     
      public void saveCursada(Cursada cur){
-        String sql = "INSERT INTO cursada (cur_id, alm_id, mat_id, nota) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO cursada ( alm_id, mat_id, nota) VALUES (?,?,?);";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                 ps.setInt(1, cur.getCur_id());
-                ps.setInt(2, cur.getAlm_id());
-                ps.setInt(3, cur.getCur_id());
-                ps.setDouble(4, cur.getNota());
+                 
+                ps.setInt(1, cur.getAlm_id());
+                ps.setInt(2, cur.getMat_id());
+                ps.setDouble(3, cur.getNota());
                 ps.executeUpdate(); 
 
                 ResultSet rs = ps.getGeneratedKeys();
 
-                if (rs.next()){
-
-                         cur.setCur_id(rs.getInt(1)); //recupero el id
-                         System.out.println("El id es :" + cur.getCur_id());
-                }
-                else {
-                    System.out.println("No se pudo insertar ");
-                }
+//                if (rs.next()){
+//
+//                         cur.setCur_id(rs.getInt(1)); //recupero el id
+//                         System.out.println("El id es :" + cur.getCur_id());
+//                }
+//                else {
+//                    System.out.println("No se pudo insertar ");
+//                }
             ps.close();
 
             } catch (SQLException ex) {
@@ -55,26 +55,25 @@ public class CursadaData {
     }
      
       public void updateCursada(Cursada cur){
-        String sql = "UPDATE cursada SET alm_id = ?,mat_id = ?, nota = ? where cur_id = ?;";
+        String sql = "UPDATE cursada SET  nota = ? where alm_id = ?,mat_id = ?;";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                ps.setDouble(1, cur.getNota());
+                ps.setInt(2, cur.getAlm_id());
+                ps.setInt(3, cur.getMat_id());
                 
-                ps.setInt(1, cur.getAlm_id());
-                ps.setInt(2, cur.getMat_id());
-                ps.setDouble(3, cur.getNota());
-                ps.setInt(4, cur.getCur_id());
                 ps.executeUpdate(); 
 
                 ResultSet rs = ps.getGeneratedKeys();
 
-                 if (rs.next()){
-
-                         cur.setCur_id(rs.getInt(1)); //recupero el id
-                         System.out.println("El id es :" + cur.getCur_id());
-                }
-                else {
-                    System.out.println("No se pudo update ");
-                }
+//                 if (rs.next()){
+//
+//                         cur.setCur_id(rs.getInt(1)); //recupero el id
+//                         System.out.println("El id es :" + cur.getCur_id());
+//                }
+//                else {
+//                    System.out.println("No se pudo update ");
+//                }
             ps.close();
 
             } catch (SQLException ex) {
@@ -83,10 +82,11 @@ public class CursadaData {
     }
       
        public void deleteCursada(Cursada cur){
-        String sql = "DELETE INTO cursada WHERE cur_id = ?;";
+        String sql = "DELETE INTO cursada WHERE alm_id = ?,mat_id = ?;";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                 ps.setInt(1, cur.getCur_id());
+                 ps.setInt(1, cur.getAlm_id());
+                  ps.setInt(1, cur.getMat_id());
                 ps.executeUpdate(); 
 
                 ResultSet rs = ps.getGeneratedKeys();
@@ -102,10 +102,10 @@ public class CursadaData {
         String sql = "SELECT * FROM cursada;";
             try {
                 PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                 ps.setInt(1, cur.getCur_id());
-                ps.setInt(2, cur.getAlm_id());
-                ps.setInt(3, cur.getCur_id());
-                ps.setDouble(4, cur.getNota());
+//                 ps.setInt(1, cur.getCur_id());
+                ps.setInt(1, cur.getAlm_id());
+                ps.setInt(2, cur.getMat_id());
+                ps.setDouble(3, cur.getNota());
                 ps.executeUpdate(); 
 
                 ResultSet rs = ps.getGeneratedKeys();
